@@ -11,6 +11,22 @@ var uv = document.querySelector('.uv')
 button.addEventListener('click', function(){
     fetch('https://api.openweathermap.org/data/2.5/weather?q='+inputValue.value+'&appid=f0b59db926725d50ddbe37a1957526a8')
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => {
+        var nameValue = data['name'];
+        var dateValue = data['date'];
+        var conditValue = data['weather'][0]['description, icon'];
+        var tempValue = data['main']['temp'];
+        var humidValue = data['main']['humidity'];
+        var windValue = data['wind'];
+        var uvValue = data['uvi'];
+
+        name.innerHTML =nameValue;
+        date.innerHTML =dateValue;
+        condit.innerHTML =conditValue;
+        temp.innerHTML =tempValue;
+        humid.innerHTML =humidValue;
+        wind.innerHTML =windValue;
+        uv.innerHTML =uvValue;
+    })
 });
 
